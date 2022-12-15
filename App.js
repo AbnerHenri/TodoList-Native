@@ -16,6 +16,8 @@ import {
 
 const App = () => {
 
+  const { width, height } = Dimensions.get('window')
+
   useEffect(()=>{
     Alert.alert(
       'Título',
