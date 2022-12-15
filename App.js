@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import {
   SafeAreaView,
   // ScrollView,
@@ -8,12 +9,14 @@ import {
   // useColorScheme,
   // View,
   Dimensions,
-  Alert
+  Alert,
 } from 'react-native';
 
 
 
 const App = () => {
+
+  
 
   return (
     <SafeAreaView style={Styles.Page}>
