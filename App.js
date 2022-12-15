@@ -21,9 +21,9 @@ const App = () => {
   useEffect(()=>{
     Alert.alert(
       'Título',
-      'Testando o Alert do React-Native',
+      `${width} x ${height}`,
       [
-        { text: 'Concordo', onPress: () => console.log('Concordado') },
+        { text: 'Concordo', onPress: () => console.log('Concordado'), style: 'destructive' },
         { text: 'Não concordo', onPress: () => console.log('Não concordado') }
       ]
     )
