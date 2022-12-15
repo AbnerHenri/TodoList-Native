@@ -4,9 +4,11 @@ import {
   // ScrollView,
   // StatusBar,
   StyleSheet,
-  // Text,
+  Text,
   // useColorScheme,
   // View,
+  Dimensions,
+  Alert
 } from 'react-native';
 
 
@@ -15,7 +17,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={Styles.Page}>
-     
+      <Text>Hello World</Text>
     </SafeAreaView>
   );
 };
