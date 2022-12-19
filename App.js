@@ -1,16 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import {
-  SafeAreaView,
-  // ScrollView,
-  // StatusBar,
-  StyleSheet,
-  Text,
-  // useColorScheme,
-  // View,
-  Dimensions,
-  Alert,
-} from 'react-native';
+import { SafeAreaView, StyleSheet, Text,} from 'react-native';
 
 
 
