@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, Dimensions, Alert, TouchableOpacity } from 'react-native';
 
 
 const App = () => {
 
-  // const { width, height } = Dimensions.get('window')
+  const { width, height } = Dimensions.get('window')
 
-  // function Alerting() {
-  //   Alert.alert(
-  //     'Título',
-  //     `${width} x ${height}`,
-  //     [
-  //       { text: 'Ok', onPress: () => console.log('Concordado'), style: 'default' }
-  //     ]
-  //   )
-  // }
+  const Alerting = () => {
+    Alert.alert(
+      'Título',
+      `${width} x ${height}`,
+      [
+        { text: 'Ok' }
+      ]
+    )
+  }
 
   return (
     <SafeAreaView style={Styles.Page}>
         <TouchableOpacity style={Styles.Button}>
-          <Text style={Styles.TextButton}>Mostrar</Text>
+          <Text style={Styles.TextButton} onPress={Alerting}>Mostrar</Text>
         </TouchableOpacity>
     </SafeAreaView>
   );
