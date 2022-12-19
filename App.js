@@ -1,34 +1,33 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text,} from 'react-native';
-
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { Button } from 'native-base'
 
 
 const App = () => {
 
-  const { width, height } = Dimensions.get('window')
+  // const { width, height } = Dimensions.get('window')
 
-  useEffect(()=>{
-    Alert.alert(
-      'Título',
-      `${width} x ${height}`,
-      [
-        { text: 'Concordo', onPress: () => console.log('Concordado'), style: 'destructive' },
-        { text: 'Não concordo', onPress: () => console.log('Não concordado') }
-      ]
-    )
-  }, [])
+  // function Alerting() {
+  //   Alert.alert(
+  //     'Título',
+  //     `${width} x ${height}`,
+  //     [
+  //       { text: 'Concordo', onPress: () => console.log('Concordado'), style: 'default' },
+  //       { text: 'Não concordo', onPress: () => console.log('Não concordado') }
+  //     ]
+  //   )
+  // }
 
   return (
     <SafeAreaView style={Styles.Page}>
-      <Text>Hello World</Text>
+          <Text>Mostrar</Text>
     </SafeAreaView>
   );
 };
 
 const Styles = StyleSheet.create({
  Page : {
-  flex : 1
+  flex : 1,
  }
 });
 
