@@ -2,13 +2,11 @@ import React from 'react';
 import { useEffect } from 'react';
 import { SafeAreaView, Text, } from 'react-native';
 
-
-
 const App = () => {
 
   return (
     <SafeAreaView style={Styles.Page}>
-      <Text>App</Text>
+      <Text>Abner</Text>
     </SafeAreaView>
   );
 };
