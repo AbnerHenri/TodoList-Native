@@ -1,37 +1,14 @@
 import React from 'react';
 import { useEffect } from 'react';
-import {
-  SafeAreaView,
-  // ScrollView,
-  // StatusBar,
-  StyleSheet,
-  Text,
-  // useColorScheme,
-  // View,
-  Dimensions,
-  Alert,
-} from 'react-native';
+import { SafeAreaView, Text, } from 'react-native';
 
 
 
 const App = () => {
 
-  const { width, height } = Dimensions.get('window')
-
-  useEffect(()=>{
-    Alert.alert(
-      'Título',
-      `${width} x ${height}`,
-      [
-        { text: 'Concordo', onPress: () => console.log('Concordado'), style: 'destructive' },
-        { text: 'Não concordo', onPress: () => console.log('Não concordado') }
-      ]
-    )
-  }, [])
-
   return (
     <SafeAreaView style={Styles.Page}>
-      <Text>Hello World</Text>
+      <Text>App</Text>
     </SafeAreaView>
   );
 };
