@@ -6,7 +6,7 @@ const App = () => {
 
   const { width, height } = Dimensions.get('window')
 
-  const Alerting = () => {
+  function Alerting(){
     Alert.alert(
       'Título',
       `${width} x ${height}`,
@@ -19,7 +19,7 @@ const App = () => {
   return (
     <SafeAreaView style={Styles.Page}>
         <TouchableOpacity style={Styles.Button}>
-          <Text style={Styles.TextButton} onPress={Alerting}>Mostrar</Text>
+          <Text style={Styles.TextButton} onPress={()=> Alerting()}>Mostrar</Text>
         </TouchableOpacity>
     </SafeAreaView>
   );
