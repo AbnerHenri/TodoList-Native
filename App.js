@@ -1,26 +1,52 @@
-import React, { useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text, Dimensions, Alert, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView, StyleSheet, Text, ScrollView  } from 'react-native';
 
 
 const App = () => {
 
-  const { width, height } = Dimensions.get('window')
+  const [repos, setRepos] = useState([])
 
-  function Alerting(){
-    Alert.alert(
-      'Título',
-      `${width} x ${height}`,
-      [
-        { text: 'Ok' }
-      ]
-    )
+  useEffect(()=>{
+    const myFetch = async () => {
+      const Res = await fetch('https://api.github.com/users/AbnerHenri/repos')
+      const Data = await Res.json()
+
+      setRepos(Data)
+    }
+
+    myFetch()
+  }, [])
+
+  function ShowLang(lang){
+    switch (lang) {
+      case 'JavaScript':
+        return { color: '#e5e619'}
+
+      case 'TypeScript':
+        return {color: '#4040ff'}
+      
+      case 'Java': 
+        return {color : 'orange'}
+
+      case 'Python':
+        return { color: '#6A5ACD'}
+    
+      default:
+        break;
+    }
   }
 
   return (
     <SafeAreaView style={Styles.Page}>
-        <TouchableOpacity style={Styles.Button}>
-          <Text style={Styles.TextButton} onPress={()=> Alerting()}>Mostrar</Text>
-        </TouchableOpacity>
+      <ScrollView style={Styles.FlatList}>
+        {
+          repos.map((e)=> 
+            <Text style={Styles.ItemsList} key={e.name}>{e.name} - 
+              <Text style={ShowLang(e.language)}> {e.language}</Text>
+            </Text>
+          )
+        }
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -28,21 +54,15 @@ const App = () => {
 const Styles = StyleSheet.create({
  Page : {
   flex : 1,
-  justifyContent : 'center',
-  alignItems : 'center'
  },
 
- Button : {
-  width : 200,
-  padding : 18,
-  backgroundColor : 'blue',
-  justifyContent : 'center',
-  alignItems : 'center',
-  borderRadius : 35
- },
+ FlatList : {
+  flex : 1
+ }, 
 
- TextButton : {
-  color : 'white'
+ ItemsList : {
+  margin : 15,
+  fontSize : 19,
  }
 });
 
