@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, FlatList } from 'react-native';
+import { SwipeListView } from 'react-native-swipe-list-view';
 
 import List from './Src/List'
 import ListItem from './Src/Components/ListItem';
 import AddItemArea from './Src/Components/AddItemArea';
+import HiddenItem from './Src/Components/HiddenItem';
 
 import uuid from 'react-native-uuid'
 
@@ -25,14 +27,23 @@ const App = () => {
     setItems(newItems)
   }
 
+  const deleteItem = (i) => {
+    let newItems = [...items]
+    newItems = newItems.filter((it, index)=> i != index )
+    setItems(newItems)
+  }
+
   return (
     <SafeAreaView style={Styles.Page}>
       <AddItemArea onAdd={onAdd} />
 
-      <FlatList 
+      <SwipeListView 
         data={items}
         renderItem={({item, index})=> <ListItem toggleDone={toggleDone} data={item} i={index}/>}
+        renderHiddenItem={({index})=> <HiddenItem deleteItem={deleteItem} index={index}/>}
         keyExtractor={(item)=> item.id }
+        leftOpenValue={50}
+        disableLeftSwipe={true}
       />
     </SafeAreaView>
   );

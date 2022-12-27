@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 function ListItem(props) {
 
   const TaskConditionStyle = {
     textDecorationLine: props.data.done ? 'line-through' : 'none',
-    opacity: props.data.done ? 0.5 : 1
+    color: props.data.done ? 'gray' : '#FFF'
   }
 
   const CheckedConditionStyle = {
@@ -13,22 +13,27 @@ function ListItem(props) {
   }
 
   return(
-    <TouchableOpacity style={Styles.Item} onPress={() => props.toggleDone(props.i)}>
+    <TouchableHighlight underlayColor={'#1D1D1D'} activeOpacity={1} style={Styles.Item} onPress={() => props.toggleDone(props.i)}>
+      <>
       <Text style={[Styles.ItemText, TaskConditionStyle]}>{props.data.task}</Text>
       <View style={[Styles.Check, CheckedConditionStyle]}></View>
-    </TouchableOpacity>
+      </>
+    </TouchableHighlight>
   );
 }
 
 const Styles = StyleSheet.create({
   Item : {
     width : '100%',
-    height : 40,
-    padding : 5,
+    height : 50,
+    paddingLeft : 15,
+    paddingRight : 10,
 
     flexDirection : 'row',
     justifyContent : 'space-between',
-    alignItems : 'center'
+    alignItems : 'center',
+
+    backgroundColor: '#1C1C1C'
   },
 
   ItemText : {
